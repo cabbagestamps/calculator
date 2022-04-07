@@ -1,0 +1,21 @@
+.calculator {
+    border: 1px solid black;
+    width: 500px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.number-box {
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.input-field {
+    border: 1px solid blue;
+}
+
+.operand {
+    border: 1px solid brown;
+}
