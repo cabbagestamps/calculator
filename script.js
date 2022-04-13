@@ -3,25 +3,29 @@ let inputField = document.querySelector('.input-field');
 let numbers = document.querySelectorAll('.number');
 numbers.forEach(number => {
     number.addEventListener('click', () => {
+        if (operandEquality) {
+            inputField.textContent = ''
+            operandEquality = false
+        }
+        if (equalsEquality) {
+            inputField.textContent = ''
+            equalsEquality = false
+        }
         inputField.textContent += number.textContent;
-        
     })
 });
 
-// this adding opernads to input field liley to be uneccesary 
+
 let operands = document.querySelectorAll('.operand');
 operands.forEach(operand => {
     operand.addEventListener('click', () => {
         numberStore = inputField.textContent
         operandStore = operand.textContent
+        operandEquality = true
     })
 });
 
-// need to save the number when operand is pressed
-// 
 
-// constructor may not be necessary, may be better to just write to object literal
-// but kinda fun to have around
  function Operation(first, operand, last) {
     this.first = first;
     this.operand = operand;
@@ -30,33 +34,17 @@ operands.forEach(operand => {
 
 let numberStore;
 let operandStore;
-
-//calculator example never shows the operand in the thing just the last number pressed
-//stores the numbers and the operand, then calculates when = is pressed
-// 1+2=3 will show 
-// 1
-// 2
-// 3
-// but with string of calculation eg 1+2+4=7 will show
-// 1 (pressed number)       1
-//                          +
-// 2 (presed number)        2
-// 3 (calculated number)    +
-// 4 (pressed number)       4
-//                          =    
-// 7 (calculated number)    7
-// so do we only  need to store 1 number at a time? first number in varaible somewhere, second nmber stored in input field 
-// then calculated number becomes stored number when operand and new number pressed
+let operandEquality
 
 const operate = function(first, operand, last) {
-    if (operand === '+') {add(first, last)};
-    if (operand === '-') {subtract(first, last)}; 
-    if (operand === '/') {divide(first, last)};
-    if (operand === '*') {multiply(first, last)};
-    // i dont think this will work for multi operand expressions
+    if (operand === '+') {return add(first, last)};
+    if (operand === '-') {return subtract(first, last)}; 
+    if (operand === '/') {return divide(first, last)};
+    if (operand === '*') {return multiply(first, last)};
+    
 }
 
-
+let equalsEquality; 
 
 //const functionArray = [add, subtract, divide, multiply]
 
@@ -64,7 +52,12 @@ let equals = document.querySelector('#equals');
 equals.addEventListener('click', () => {
     let operation = new Operation(+numberStore, operandStore, +inputField.textContent)
     console.log(operation)
-    operate(operation.first, operation.operand, operation.last)
+    operandStore = ''
+    operandEquality = false
+   // numberStore = ''
+    inputField.textContent = operate(operation.first, operation.operand, operation.last)
+    equalsEquality = true
+    
 })
 
 
