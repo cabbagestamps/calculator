@@ -1,21 +1,94 @@
 .calculator {
     border: 1px solid black;
-    width: 500px;
-    height: auto;
+    width: 800px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    'input  clear'
+    'operands  numbers'
+    'operands   equals ';
+}
+
+
+.calculator > div > div,
+#clear,
+#equals,
+.input-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .number-box {
-    border: 1px solid red;
+    border: 1px solid pink;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-area: numbers;
+}
+
+.number {
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    margin: 5px;
+    
+}
+
+.number:hover {
+    border-radius: 45%;
+    transition: 0.3s;
+}
+
+.number:active {
+    transform: translateY(4px);;
 }
 
 .input-field {
     border: 1px solid blue;
+    grid-area: input;
+    height: 50px;
+    width: 400px;
 }
 
 .operand {
-    border: 1px solid brown;
+    border: 1px solid green;
+    
 }
+
+.operand:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.operand:active {
+    box-shadow: 2px 4px 4px 2px #888888 inset;
+    
+}
+
+.operand-box {
+    grid-area: operands;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 400px;
+}
+
+#equals {
+    background-color: gray;
+    grid-area: equals;
+    
+    padding: 10px;
+}
+
+#equals:active {
+    background-color: blueviolet;
+}
+
+#clear {
+    background-color: brown;
+    grid-area: clear;
+}
+
+#clear:active {
+    background-color: blueviolet;
+}
+
+
