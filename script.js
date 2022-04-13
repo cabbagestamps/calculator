@@ -19,13 +19,18 @@ numbers.forEach(number => {
 let operands = document.querySelectorAll('.operand');
 operands.forEach(operand => {
     operand.addEventListener('click', () => {
+        if (operandStore) {
+            let operation = new Operation(+numberStore, operandStore, +inputField.textContent)
+            inputField.textContent = operate(operation.first, operation.operand, operation.last)
+        }
         numberStore = inputField.textContent
         operandStore = operand.textContent
         operandEquality = true
+
     })
 });
 
-
+// this constructor may not be necessary but it sure is fun to have around
  function Operation(first, operand, last) {
     this.first = first;
     this.operand = operand;
