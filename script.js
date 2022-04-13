@@ -65,6 +65,14 @@ equals.addEventListener('click', () => {
     
 })
 
+let allClear = document.querySelector('#clear');
+allClear.addEventListener('click', () => {
+    inputField.textContent = '';
+    numberStore = '';
+    operandStore = '';
+    operandEquality = false;
+    equalsEquality = false;
+})
 
 const add = function(a, b) {
     console.log(a + b)
