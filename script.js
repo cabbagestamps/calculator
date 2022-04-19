@@ -46,7 +46,8 @@ const operate = function(first, operand, last) {
     if (operand === '-') {return subtract(first, last)}; 
     if (operand === '/') {return divide(first, last)};
     if (operand === '*') {return multiply(first, last)};
-    
+    if (operand === '^') {return power(first, last)}
+    if (operand === '!') {return factorial(last)}
 }
 
 let equalsEquality; 
@@ -84,9 +85,11 @@ const subtract = function(a, b) {
 	return a - b
 };
 
-
 const divide = function(a, b) {
     console.log(a/b)
+    if (b === 0) {
+        return 'UNDEFINED'
+    }
     return a / b
 }
 
@@ -116,8 +119,7 @@ const factorial = function(a) {
 	let factAns = 1;
   for (let i=1; i<a+1; i++) {
     factAns *= i;
-  }
-console.log(factAns)  
+  } 
 return factAns
 };
 
