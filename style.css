@@ -5,11 +5,11 @@
 
 
 .calculator {
-    font-size: 20px;
     border: 1px solid black;
     width: 800px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    font-size: 30px;
 }
 
 .calculator > div > div,
@@ -53,9 +53,9 @@
 }
 
 .input-field {
-    
     grid-column: 1 / 2;
     height: 50px;
+    background-color: rgb(0, 180, 0);
 }
 
 .operand-box {
