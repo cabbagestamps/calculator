@@ -1,9 +1,9 @@
 :root {
    --blue:  rgb(19, 166, 211);
-   --button-size: 8rem;
-    --bg-img-size: 15rem;
-    --calculator-size: 50rem;
-    --field-height: 6rem;
+   --button-size: 8vw;
+    --bg-img-size: 15vw;
+    --calculator-size: 50vw;
+    --field-height: 6vw;
 }
 
 
