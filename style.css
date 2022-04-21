@@ -1,18 +1,26 @@
 :root {
    --blue:  rgb(19, 166, 211);
-   --button-size: 8vw;
+   --button-size: 6vw;
     --bg-img-size: 15vw;
-    --calculator-size: 100vw;
-    --field-height: 8vw;
+    --calculator-size: ;
+    --field-height: 5vh;
+    --field-padding: 1vh;
 }
 
 body {
-    font-size: 5vw;
+    font-size: 2.5vw;
+    margin: 0;
+}
+
+@media screen and (max-width: 400px) {
+    :root {
+        --field-height: 5vh;
+        --field-padding: 3px;
+    }
 }
 
 .calculator {
     width: var(--calculator-size);
-    height:auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-size: auto;
@@ -34,13 +42,13 @@ body {
 }
 
 .calculator > div {
-   border: 1px solid black;
+   border: 0.1vw solid black;
 }
 
 .number-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 1vw;
     justify-items: center;
     align-items: center;
     grid-row: 2 / 5;
@@ -52,7 +60,7 @@ body {
     width: var(--button-size);
     height: var(--button-size);
     border-radius: 20%;
-    margin: 5px;
+    margin: 0.5vw;
     background-color: white;
 }
 
@@ -62,13 +70,14 @@ body {
 }
 
 .number:active {
-    transform: translateY(4px);;
+    transform: translateY(0.4vw);;
 }
 
 .input-field {
     grid-column: 1 / 2;
     height: var(--field-height);
     background-color: rgb(0, 180, 0);
+    padding: var(--field-padding);
     -webkit-touch-callout: text;
     -webkit-user-select: text;
     -khtml-user-select: text;
@@ -82,7 +91,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 1fr);
     grid-row: 2 / 4;
-    gap: 10px;
+    gap: 1vw;
     justify-items: center;
     align-items: center;
     align-self: center;
@@ -91,7 +100,7 @@ body {
 }
 
 .operand {
-    margin: 5px;
+    margin: 0.5vw;
     font-size: auto;
     width: var(--button-size);
     height: var(--button-size);
@@ -104,7 +113,7 @@ body {
 }
 
 .operand:active {
-    box-shadow: 2px 4px 4px 2px #888888 inset;
+    box-shadow: 0.2vw 0.4vw 0.4vw 0.2vw #888888 inset;
 }
 
 .operand.plus {
@@ -142,6 +151,7 @@ body {
     grid-row: 4 / 4;
     height: var(--field-height);
     align-self: end;
+    padding: var(--field-padding);
 }
 
 #equals:active {
@@ -153,6 +163,7 @@ body {
     grid-column: 2 / 3;
     grid-row: 1 / 1;
     height: var(--field-height);
+    padding: var(--field-padding);
 }
 
 #clear:active {
