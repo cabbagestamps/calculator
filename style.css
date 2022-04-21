@@ -9,12 +9,13 @@
 
 body {
     font-size: 2.5vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 0;
 }
 
 @media screen and (max-width: 400px) {
     :root {
-        --field-height: 5vh;
+        --field-height: 3vh;
         --field-padding: 3px;
     }
 }
